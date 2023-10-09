@@ -4,15 +4,26 @@
 # input
 $input = read-host "please input power plan [high or low or balance].or please input [show] to see power plans."
 
-$select_plan = $BALANCE
-if($input -eq "high"){
-  $select_plan = $HIGH_PERFORMANCE
-}elseif($input -eq "low"){
-  $select_plan = $POWER_SEVER
-}elseif($input -eq "show"){
+# inut logic
+if($input -eq "show"){
   powercfg /list
+  pause
+  exit
+}elseif(!$INPUT_RELATION.ContainsKey($input)){
+  echo "inputed in not exact power plan. please check conf.ps INPUT_RELATION."
+  pause
+  exit
 }
+$select_plan = $INPUT_RELATION[$input]
 
+# execute
 powercfg /s $select_plan
 
+# show result
+$result = "failed..."
+if($?){
+  $result = "success!!"
+}
+
+echo "Result: $result"
 pause
