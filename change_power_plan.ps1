@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # read setting
 . ./conf.ps1
 
@@ -20,10 +22,10 @@ $select_plan = $INPUT_RELATION[$input]
 powercfg /s $select_plan
 
 # show result
-$result = "failed..."
 if($?){
   $result = "success!!"
+  exit
 }
 
-echo "Result: $result"
+echo "Result: failed..."
 pause
