@@ -10,5 +10,6 @@ $RYZEN_HIGH_PERFORMANCE = "9935e61f-1661-40c5-ae2f-8495027d5d5d"
 $INPUT_RELATION = @{
   "high" = $HIGH_PERFORMANCE
   "low" = $POWER_SEVER
-  "balance"  = $BALANCE
+  "balance" = $BALANCE
+  "r_high" = $RYZEN_HIGH_PERFORMANCE
 }
